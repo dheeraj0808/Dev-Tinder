@@ -21,6 +21,9 @@ app.get("/user",
     }
 
 );
+// in the above lines next () is used to pass the request to the next middleware
+// if we not use next () then the request will not go to the next middleware
+// and we got error
 
 
 module.exports = app;
