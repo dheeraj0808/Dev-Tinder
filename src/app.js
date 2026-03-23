@@ -1,14 +1,24 @@
 const express = require("express");
 const app = express();
 
-app.use("/user", (req, res) => {
-    console.log("User route");
-    res.send("User route");
-    //in the above line res.send is used to send the response to the client
-    //and  if this line is not present the we got error 
+app.use((req, res, next) => {
+    const token = "xyz";
 
-    //next () :- it is used to pass the request to the next middleware
-})
+    const isAuthorized = token === "xyz";
+
+    if (!isAuthorized) {
+        res.status(404).send({ message: "you are not authorized" });
+    }
+    else {
+        next();
+    }
+
+});
+
+app.get("/", (req, res) => {
+    res.send("this is the home page");
+});
+
 
 app.get("/user",
     (req, res, next) => {
@@ -27,4 +37,4 @@ app.get("/user",
 // if it does not find any response 
 
 
-module.exports = app;
+module.exports = app

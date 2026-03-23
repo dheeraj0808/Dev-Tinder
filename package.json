@@ -21,7 +21,6 @@
   },
   "homepage": "https://github.com/dheeraj0808/Dev-Tinder#readme",
   "dependencies": {
-    "express": "^5.2.1",
-    "nodemon": "^3.1.14"
+    "express": "^5.2.1"
   }
 }
