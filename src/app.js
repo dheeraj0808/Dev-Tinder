@@ -1,26 +1,16 @@
 const express = require("express");
 const app = express();
+const {AdminAuth,UserAuth} = require("./middleware/auth");
 
-app.use((req, res, next) => {
-    const token = "xyz";
 
-    const isAuthorized = token === "xyz";
-
-    if (!isAuthorized) {
-        res.status(404).send({ message: "you are not authorized" });
-    }
-    else {
-        next();
-    }
-
-});
-
-app.get("/", (req, res) => {
+app.use("/admin", AdminAuth);
+app.get("/admin", (req, res) => {
     res.send("this is the home page");
 });
-
-
-app.get("/user",
+app.use("/user",UserAuth);
+// if there is only one routes then we can simply writes there so we don't need to write it seperately 
+// but if there are multiple routes then we can use app.use()
+app.get("/user", UserAuth,
     (req, res, next) => {
         console.log("this is the the first get");
         next();
