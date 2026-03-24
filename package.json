@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/dheeraj0808/Dev-Tinder#readme",
   "dependencies": {
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "mysql2": "^3.20.0"
   }
 }
