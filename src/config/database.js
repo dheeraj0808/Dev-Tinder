@@ -10,5 +10,6 @@ const sequelize = new Sequelize(
         dialect: "mysql"
     }
 );
+// this si database connection file, it will be used to connect to the database and export the sequelize instance to be used in other files.
 
 module.exports = sequelize;
