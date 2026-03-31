@@ -53,6 +53,10 @@ async function getUserByEmail(req, res) {
     }
 }
 
+// Data sanitization function and schema validation can be added here for better security and data integrity.
+
+
+
 module.exports = {
     register,
     login,
